@@ -50,6 +50,15 @@ func JSONTagName(name string, options *opts.Options) string {
 		return SetJSONCaseStyle(name, style, idUppercase)
 	}
 }
+func YAMLTagName(name string, options *opts.Options) string {
+	style := options.YamlTagsCaseStyle
+	idUppercase := options.YamlTagsIdUppercase
+	if style == "" || style == "none" {
+		return name
+	} else {
+		return SetJSONCaseStyle(name, style, idUppercase)
+	}
+}
 
 func SetCaseStyle(name string, style string) string {
 	switch style {

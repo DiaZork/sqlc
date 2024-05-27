@@ -37,7 +37,10 @@ func buildEnums(req *plugin.GenerateRequest, options *opts.Options) []Enum {
 				e.NameTags["json"] = JSONTagName(enumName, options)
 				e.ValidTags["json"] = JSONTagName("valid", options)
 			}
-
+			if options.EmitYamlTags {
+				e.NameTags["yaml"] = YAMLTagName(enumName, options)
+				e.ValidTags["yaml"] = YAMLTagName("valid", options)
+			}
 			seen := make(map[string]struct{}, len(enum.Vals))
 			for i, v := range enum.Vals {
 				value := EnumReplace(v)
@@ -92,6 +95,9 @@ func buildStructs(req *plugin.GenerateRequest, options *opts.Options) []Struct {
 				}
 				if options.EmitJsonTags {
 					tags["json"] = JSONTagName(column.Name, options)
+				}
+				if options.EmitYamlTags {
+					tags["yaml"] = YAMLTagName(column.Name, options)
 				}
 				addExtraGoStructTags(tags, req, options, column)
 				s.Fields = append(s.Fields, Field{
@@ -386,6 +392,9 @@ func columnsToStruct(req *plugin.GenerateRequest, options *opts.Options, name st
 		}
 		if options.EmitJsonTags {
 			tags["json"] = JSONTagName(tagName, options)
+		}
+		if options.EmitYamlTags {
+			tags["yaml"] = YAMLTagName(tagName, options)
 		}
 		addExtraGoStructTags(tags, req, options, c.Column)
 		f := Field{

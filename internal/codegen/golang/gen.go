@@ -29,7 +29,9 @@ type tmplCtx struct {
 	SourceName string
 
 	EmitJSONTags              bool
+	EmitYAMLTags              bool
 	JsonTagsIDUppercase       bool
+	YamlTagsIDUppercase       bool
 	EmitDBTags                bool
 	EmitPreparedQueries       bool
 	EmitInterface             bool
@@ -170,7 +172,9 @@ func generate(req *plugin.GenerateRequest, options *opts.Options, enums []Enum, 
 	tctx := tmplCtx{
 		EmitInterface:             options.EmitInterface,
 		EmitJSONTags:              options.EmitJsonTags,
+		EmitYAMLTags:              options.EmitYamlTags,
 		JsonTagsIDUppercase:       options.JsonTagsIdUppercase,
+		YamlTagsIDUppercase:       options.YamlTagsIdUppercase,
 		EmitDBTags:                options.EmitDbTags,
 		EmitPreparedQueries:       options.EmitPreparedQueries,
 		EmitEmptySlices:           options.EmitEmptySlices,

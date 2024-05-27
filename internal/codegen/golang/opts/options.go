@@ -12,7 +12,9 @@ import (
 type Options struct {
 	EmitInterface               bool              `json:"emit_interface" yaml:"emit_interface"`
 	EmitJsonTags                bool              `json:"emit_json_tags" yaml:"emit_json_tags"`
+	EmitYamlTags                bool              `json:"emit_yaml_tags" yaml:"emit_yaml_tags"`
 	JsonTagsIdUppercase         bool              `json:"json_tags_id_uppercase" yaml:"json_tags_id_uppercase"`
+	YamlTagsIdUppercase         bool              `json:"yaml_tags_id_uppercase" yaml:"yaml_tags_id_uppercase"`
 	EmitDbTags                  bool              `json:"emit_db_tags" yaml:"emit_db_tags"`
 	EmitPreparedQueries         bool              `json:"emit_prepared_queries" yaml:"emit_prepared_queries"`
 	EmitExactTableNames         bool              `json:"emit_exact_table_names,omitempty" yaml:"emit_exact_table_names"`
@@ -26,6 +28,7 @@ type Options struct {
 	EmitAllEnumValues           bool              `json:"emit_all_enum_values,omitempty" yaml:"emit_all_enum_values"`
 	EmitSqlAsComment            bool              `json:"emit_sql_as_comment,omitempty" yaml:"emit_sql_as_comment"`
 	JsonTagsCaseStyle           string            `json:"json_tags_case_style,omitempty" yaml:"json_tags_case_style"`
+	YamlTagsCaseStyle           string            `json:"yaml_tags_case_style,omitempty" yaml:"yaml_tags_case_style"`
 	Package                     string            `json:"package" yaml:"package"`
 	Out                         string            `json:"out" yaml:"out"`
 	Overrides                   []Override        `json:"overrides,omitempty" yaml:"overrides"`
